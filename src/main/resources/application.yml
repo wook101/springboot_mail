@@ -2,8 +2,8 @@ spring:
   mail:
     host: smtp.gmail.com
     port: 587
-    username: 구글 아이디
-    password: 구글 비밀번호
+    username: #구글 아이디
+    password: #구글 비밀번호
     properties:
       mail:
         smtp:
