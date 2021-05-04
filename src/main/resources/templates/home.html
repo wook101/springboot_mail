@@ -3,11 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <script src="/jquery/jquery-3.6.0.min.js"></script>
 </head>
 <body>
-    <button>메일 인증하기</button>
+    <button type="button" id="mail_auth">메일 인증하기</button>
     <script>
-
+        $('#mail_auth').on('click',()=>{
+            $.ajax({
+                type:"post",
+                url: "/send",
+                contentType: "application/json",    //서버로 보낼때 타입
+                data: JSON.stringify({"email": "ehddnr1021@naver.com"})
+            }).done(function (){
+                alert('인증 메일이 발송 되었습니다.');
+            }).fail(function(error){
+                alert(error);
+            });
+        });
     </script>
 </body>
 </html>

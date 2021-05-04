@@ -1,9 +1,13 @@
 package com.example.mails.controller;
 
 import com.example.mails.service.EmailService;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.Map;
 
 @RestController
 public class MailController {
@@ -15,9 +19,8 @@ public class MailController {
     }
 
     @PostMapping("/send")
-    public String sendEmail(@RequestParam String email){
-        emailService.sendEmail(email);
-        return "보내기 성공!!";
+    public void sendEmail(@RequestBody Map<String, String> map){
+        emailService.sendEmail(map.get("email"));
     }
 
 }
